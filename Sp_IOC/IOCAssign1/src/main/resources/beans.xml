@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<bean id="tmpPojoObj" class="com.mp.spring.pojo.TmpPojo" >
+		<property name="tmp" value="10"/>
+	</bean>
+	
+	<bean name="vehicleObj" id="vehicleObj" class="com.mp.spring.pojo.Vehicle">
+		<constructor-arg name="pVehicleType" value="car"/>
+		<constructor-arg name="seats" value="2"></constructor-arg>
+		<constructor-arg name="wheels" value="4"></constructor-arg>
+		<constructor-arg name="windows" value="2"></constructor-arg>
+		<constructor-arg name="pTmpObj" ref="tmpPojoObj"></constructor-arg>
+	</bean>
+	
+	<bean name="assignFirstBean" id="obj1" class="com.mp.spring.pojo.Car">
+		<property name="name" value="Maruti Suzuki"/>
+		<property name="model" value="Hatchback"/>
+		<property name="type" value="People Carrying"/>
+		<property name="vehicle" ref="vehicleObj"></property>
+	</bean>
+
+</beans>
